@@ -86,7 +86,7 @@ anything up.
 
 ## Notes
 
-Currently, only a subsect of the features in the formats we've added have been
+Currently, only a subset of the features in the formats we've added have been
 included. Only the bare essentials have been implimented, at the moment. If you
 want to add something, open an issue/pull request.
 
