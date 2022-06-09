@@ -7,17 +7,16 @@ export function parseSRT(input: string): subs[] {
   // SRT files have content seperated by 2 newlines.
   const r: string[] = input.split("\n\n");
   for (let i = 0; i < r.length; i++) {
-    const d: number = parseInt(r[i].split("\n")[0]); // Index of
-    const b: string = r[i].split("\n")[1].split(" --> ")[0];
-    const e: string = r[i].split("\n")[1].split(" --> ")[1];
-    const c: string = r[i].split("\n").slice(2).join("\n");
+    const subIndex: number = parseInt(r[i].split("\n")[0]); // Index of
+    const startTime: string = r[i].split("\n")[1].split(" --> ")[0];
+    const endTime: string = r[i].split("\n")[1].split(" --> ")[1];
+    const subBody: string = r[i].split("\n").slice(2).join("\n");
 
     const p: subs = {
-      index: d,
-      // Replace comma with period.
-      start: b.replace(",", "."),
-      end: e.replace(",", "."),
-      content: c,
+      index: subIndex,
+      start: startTime.replace(",", "."),
+      end: endTime.replace(",", "."),
+      content: subBody,
     };
     parsed.push(p);
   }
