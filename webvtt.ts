@@ -10,16 +10,16 @@ export function parseWebVTT(input: string): subs[] {
   r.shift();
 
   for (let i = 0; i < r.length; i++) {
-    const d: number = i + 1;
-    const b: string = r[i].split("\n")[0].split(" --> ")[0];
-    const e: string = r[i].split("\n")[0].split(" --> ")[1];
-    const c: string = r[i].split("\n").slice(1).join("\n");
+    const subIndex: number = i + 1;
+    const startTime: string = r[i].split("\n")[0].split(" --> ")[0];
+    const endTime: string = r[i].split("\n")[0].split(" --> ")[1];
+    const subBody: string = r[i].split("\n").slice(1).join("\n");
 
     const p: subs = {
-      index: d,
-      start: b,
-      end: e,
-      content: c,
+      index: subIndex,
+      start: startTime,
+      end: endTime,
+      content: subBody,
     };
     parsed.push(p);
   }
